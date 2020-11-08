@@ -49,8 +49,8 @@ class LoginPage extends StatelessWidget {
             child: Column(
                mainAxisAlignment: MainAxisAlignment.center, 
                   children: <Widget>[
-              Text('Farm to market' , style: TextStyle(color: Colors.deepOrangeAccent, fontSize: 25),),
-              Text('text to add optionnal', style: TextStyle(color: Colors.white),),
+              Text('Farm to market' , style: TextStyle(color: Colors.white, fontSize: 25),),
+             
             ],
             ),
             ),
@@ -108,22 +108,51 @@ class LoginPage extends StatelessWidget {
                         )),
                   ),
                 ),
-                  Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 10.0, right: 20.0, top: 10.0),
-                    child:  Container(
-                        alignment: Alignment.center,
-                        height: 60.0,
-                        child: Text("Forgot Password?",
-                            style:  TextStyle(
-                                fontSize: 17.0, color: Color(0xFF18D191)))),
-                  ),
-                )
+                 
                
               ],
+              
             ),
-          
+           new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 5.0, top: 10.0),
+                    child: new Container(
+                        alignment: Alignment.center,
+                        height: 60.0, 
+                       
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          },
+                         child: Row(
+               mainAxisAlignment: MainAxisAlignment.center, 
+                  children: <Widget>[
+              Text('Don\'t have an account?' , 
+              style: TextStyle(color: Colors.black, fontSize: 15),
+              ),
+               Text('Don\'t have an account?' , 
+              style: TextStyle(color: HexColor("#197419"), fontSize: 15),
+              ),
+            ],
+            ),
+                         
+                                  
+                        )
+                        ),
+                  ),
+                ),
+                 
+               
+              ],
+              
+            ),
           ],
         ),
       ),
