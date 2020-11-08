@@ -1,0 +1,1 @@
+create assests and font folder to store your stuff
