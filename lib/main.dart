@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         image: new Image.asset('assets/logo.png'),
         //Splash Screen Background color
 
-        backgroundColor: Colors.green[300],
+        backgroundColor: HexColor("#197419"),
         styleTextUnderTheLoader: new TextStyle(),
         photoSize: 100.0,
         loaderColor: Colors.greenAccent[100],
@@ -41,7 +42,8 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Coding Ninja"),
+        title: new Text("farm"),
+        backgroundColor:HexColor("#197419"),
         automaticallyImplyLeading: false,
       ),
       body: new Center(
