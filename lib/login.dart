@@ -1,133 +1,152 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'Home.dart';
-import 'common.dart';
-import 'Register.dart';
+void main() => runApp(App());
 
-class LoginPage extends StatelessWidget {
+class App extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        
+      ),
+      home: LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget{
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage>{
+
+  bool _isHidden = true;
+
+  void _toggleVisibility(){
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context){
     return Scaffold(
-      appBar: PreferredSize(
-          child: ClipPath(
-            clipper: CustomAppBar(),
-            child: Container(
-              color: Colors.white,
-               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Image.asset('assets/logo.png', height: 100),
+      resizeToAvoidBottomPadding: false,
+      body: Container(
+        padding: EdgeInsets.only(top: 100.0, right: 20.0, left: 20.0, bottom: 20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+          Image.asset('assets/logo.png', height: 100),
+            SizedBox(height: 40.0,),
+            
+            Text(
+              "Login With Email",
+           
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
                 
+              ),
+            ),
+            SizedBox(height: 40.0,),
+            buildTextField("Email"),
+            SizedBox(height: 20.0,),
+            buildTextField("Password"),
+            SizedBox(height: 20.0,),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Forgotten Password?",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
                 ],
               ),
-           
             ),
-          ),
-          preferredSize: Size.fromHeight(kToolbarHeight + 250)),
-      body: Container(
-        //container helps in positioning items
-        child: Column(
-            
-          children: <Widget>[
-            
- Align(
-      alignment: Alignment.centerLeft,
-
-      child: Container(
-        
-            margin: new EdgeInsets.all(20.0),
-        child: Text(
-          "Login with Email",
-           style: TextStyle(color: Colors.black, fontSize: 25),
-        ),
-      ),
-    ),
-           
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: TextField(
-                decoration: InputDecoration(labelText: 'Email'),
-              ),
-            ),
-            SizedBox(
-              height: 15.0,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(labelText: 'password'),
-              ),
-            ),
-            new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 5.0, top: 10.0),
-                    child: new Container(
-                        alignment: Alignment.center,
-                        height: 60.0,
-                        decoration: new BoxDecoration(
-                            color: HexColor("#197419"),
-                            borderRadius: new BorderRadius.circular(9.0)),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage()));
-                          },
-                          child: Text("Login",
-                              style: new TextStyle(
-                                  fontSize: 20.0, color: Colors.white)),
-                        )),
-                  ),
+            SizedBox(height: 50.0),
+            buildButtonContainer(),
+            SizedBox(height: 10.0,),
+            Container(
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Don't have an account?"),
+                    SizedBox(width: 10.0,),
+                    Text("SIGN UP", style: TextStyle(color: Theme.of(context).primaryColor,))
+                  ],
                 ),
-              ],
-            ),
-            new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 5.0, top: 10.0),
-                    child: new Container(
-                        alignment: Alignment.center,
-                        height: 60.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RegisterPage()));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                'Don\'t have an account?',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 15),
-                              ),
-                              Text(
-                                'Don\'t have an account?',
-                                style: TextStyle(
-                                    color: HexColor("#197419"), fontSize: 15),
-                              ),
-                            ],
-                          ),
-                        )),
-                  ),
-                ),
-              ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
+  Widget buildTextField(String hintText){
+    return TextField(
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(
+          color: Colors.grey,
+          fontSize: 16.0,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        prefixIcon: hintText == "Email" ? Icon(Icons.email) : Icon(Icons.lock),
+        suffixIcon: hintText == "Password" ? IconButton(
+          onPressed: _toggleVisibility,
+          icon: _isHidden ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
+        ) : null,
+      ),
+      obscureText: hintText == "Password" ? _isHidden : false,
+    );
+  }
+
+  Widget buildButtonContainer(){
+    return Container(
+      height: 56.0,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(23.0),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFFB415B),
+            Color(0xFFEE5623)
+          ],
+          begin: Alignment.centerRight,
+          end: Alignment.centerLeft
+        ),
+      ),
+           child: GestureDetector(
+               onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          },
+                           child: Center(
+        child: Text(
+          "LOGIN",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+          ),
+        ),
+      ),
+           ),
+     
+    );
+
+  }
+}
