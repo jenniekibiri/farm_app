@@ -43,16 +43,7 @@ class _LoginPageState extends State<LoginPage>{
           Image.asset('assets/logo.png', height: 100),
             SizedBox(height: 40.0,),
             
-            Text(
-              "Login With Email",
-           
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                
-              ),
-            ),
+            
             SizedBox(height: 40.0,),
             buildTextField("Email"),
             SizedBox(height: 20.0,),
@@ -65,7 +56,7 @@ class _LoginPageState extends State<LoginPage>{
                   Text(
                     "Forgotten Password?",
                     style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                      color: Colors.greenAccent,
                     ),
                   ),
                 ],
@@ -81,7 +72,8 @@ class _LoginPageState extends State<LoginPage>{
                   children: <Widget>[
                     Text("Don't have an account?"),
                     SizedBox(width: 10.0,),
-                    Text("SIGN UP", style: TextStyle(color: Theme.of(context).primaryColor,))
+                    Text("SIGN UP", style: TextStyle(color: Colors.greenAccent),
+                    )
                   ],
                 ),
               ),
@@ -121,8 +113,8 @@ class _LoginPageState extends State<LoginPage>{
         borderRadius: BorderRadius.circular(23.0),
         gradient: LinearGradient(
           colors: [
-            Color(0xFFFB415B),
-            Color(0xFFEE5623)
+            Colors.green,
+            Colors.greenAccent,
           ],
           begin: Alignment.centerRight,
           end: Alignment.centerLeft
