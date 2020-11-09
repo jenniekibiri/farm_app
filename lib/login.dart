@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'Home.dart';
+import 'common.dart';
 import 'Register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,22 +13,14 @@ class LoginPage extends StatelessWidget {
             clipper: CustomAppBar(),
             child: Container(
               color: HexColor("#197419"),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Farm to market',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                ],
-              ),
+           
             ),
           ),
           preferredSize: Size.fromHeight(kToolbarHeight + 250)),
       body: Container(
         //container helps in positioning items
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
               'Login with Email',
@@ -121,25 +114,3 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class CustomAppBar extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = new Path();
-
-    path.lineTo(0, size.height);
-    path.quadraticBezierTo(
-        size.width / 4, size.height - 40, size.width / 2, size.height - 20);
-
-    path.quadraticBezierTo(
-        3 / 4 * size.width, size.height, size.width, size.height - 20);
-
-    path.lineTo(size.width, 0);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}

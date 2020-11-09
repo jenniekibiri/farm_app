@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'login.dart';
+import 'common.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class RegisterPage extends StatelessWidget {

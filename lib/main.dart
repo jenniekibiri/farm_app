@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'login.dart';
 void main() {
   runApp(MyApp());
