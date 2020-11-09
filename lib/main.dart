@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
         seconds: 7,
         navigateAfterSeconds: LoginPage(),
         image: Image.asset('assets/logo.png', height: 100),
-        backgroundColor: HexColor("#197419"),
+        backgroundColor: Colors.white,
         photoSize: 100.0,
         loaderColor: Colors.greenAccent[100],
       ),
