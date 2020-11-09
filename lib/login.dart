@@ -12,7 +12,14 @@ class LoginPage extends StatelessWidget {
           child: ClipPath(
             clipper: CustomAppBar(),
             child: Container(
-              color: HexColor("#197419"),
+              color: Colors.white,
+               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                   Image.asset('assets/logo.png', height: 100),
+                
+                ],
+              ),
            
             ),
           ),
@@ -20,12 +27,22 @@ class LoginPage extends StatelessWidget {
       body: Container(
         //container helps in positioning items
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            
           children: <Widget>[
-            Text(
-              'Login with Email',
-              style: TextStyle(color: Colors.deepOrangeAccent, fontSize: 25),
-            ),
+            
+ Align(
+      alignment: Alignment.centerLeft,
+
+      child: Container(
+        
+            margin: new EdgeInsets.all(20.0),
+        child: Text(
+          "Login with Email",
+           style: TextStyle(color: Colors.black, fontSize: 25),
+        ),
+      ),
+    ),
+           
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
               child: TextField(
