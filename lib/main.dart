@@ -16,19 +16,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+    
       home: SplashScreen(
-        //number of seconds the splash screen will show
+    
         routeName: "/",
         seconds: 7,
-        //Page to show after splash screen
         navigateAfterSeconds: LoginPage(),
-
-        //Our logo that we have imported in step 2
-        image: new Image.asset('assets/logo.png', height: 100),
-        //Splash Screen Background color
-
+        image: Image.asset('assets/logo.png', height: 100),
         backgroundColor: HexColor("#197419"),
-        styleTextUnderTheLoader: new TextStyle(),
         photoSize: 100.0,
         loaderColor: Colors.greenAccent[100],
       ),
