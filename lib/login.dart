@@ -1,5 +1,8 @@
+import 'package:farm/Register.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'Home.dart';
+
 void main() => runApp(App());
 
 class App extends StatelessWidget{
@@ -56,7 +59,7 @@ class _LoginPageState extends State<LoginPage>{
                   Text(
                     "Forgotten Password?",
                     style: TextStyle(
-                      color: Colors.greenAccent,
+                      color: HexColor("#197419"),
                     ),
                   ),
                 ],
@@ -72,8 +75,19 @@ class _LoginPageState extends State<LoginPage>{
                   children: <Widget>[
                     Text("Don't have an account?"),
                     SizedBox(width: 10.0,),
-                    Text("SIGN UP", style: TextStyle(color: Colors.greenAccent),
+                     GestureDetector(
+               onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RegisterPage()));
+                          },
+                           child: Center(
+        child:  Text("SIGN UP", style: TextStyle( color: HexColor("#197419")),
                     )
+      ),
+           ),
+                   
                   ],
                 ),
               ),
