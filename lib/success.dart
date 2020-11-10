@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'Home.dart';
 class SuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class SuccessPage extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SuccessPage()));
+                                    builder: (context) => HomePage()));
                           },
                           child: Text("Start Exploring",
                               style: new TextStyle(
