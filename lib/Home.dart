@@ -1,34 +1,87 @@
 import 'package:flutter/material.dart';
-import 'common.dart';
-
-
+import 'package:hexcolor/hexcolor.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          child: ClipPath(
-            clipper: CustomAppBar(),
-            child: Container(
-              color: Colors.grey[400],
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'Curved AppBar Exemple',
-                    style:
-                        TextStyle(color: Colors.deepOrangeAccent, fontSize: 25),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Icon(
+                      Icons.person,
+                      size: 80,
+                      color: Colors.white,
+                    ),
                   ),
-                  Text(
-                    'text to add optionnal',
-                    style: TextStyle(color: Colors.white),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                           padding: EdgeInsets.symmetric(horizontal: 11.0, vertical: 0.0), 
+                          child: Text('Jane Doe',
+                          style: TextStyle(color: Colors.grey[100]),
+                          ),
+                          ),
+                    ],
                   ),
+
                 ],
               ),
+              decoration: BoxDecoration(
+                color: HexColor("#5EAD34"),
+              ),
             ),
+            ListTile(
+              title: Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        backgroundColor: HexColor("#5EAD34"),
+        title: Text('Farm to market'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
           ),
-          preferredSize: Size.fromHeight(kToolbarHeight + 250)),
+          IconButton(
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
+      ),
       body: new Center(
         child: new Text(
           "Home page",
@@ -38,6 +91,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
-
