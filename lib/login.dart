@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage>{
                   Text(
                     "Forgotten Password?",
                     style: TextStyle(
-                      color: HexColor("#197419"),
+                      color: HexColor("#5EAD34"),
                     ),
                   ),
                 ],
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage>{
                                     builder: (context) => RegisterPage()));
                           },
                            child: Center(
-        child:  Text("SIGN UP", style: TextStyle( color: HexColor("#197419")),
+        child:  Text("SIGN UP", style: TextStyle( color: HexColor("#5EAD34")),
                     )
       ),
            ),
@@ -127,8 +127,8 @@ class _LoginPageState extends State<LoginPage>{
         borderRadius: BorderRadius.circular(23.0),
         gradient: LinearGradient(
           colors: [
-            Colors.green,
-            Colors.greenAccent,
+            HexColor("#5EAD34"),
+            HexColor("#5EAD34"),
           ],
           begin: Alignment.centerRight,
           end: Alignment.centerLeft
