@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
+import 'common.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+    resizeToAvoidBottomInset: false,
 bottomNavigationBar: BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
   fixedColor: Color(0XFF29D091),
@@ -29,7 +29,7 @@ bottomNavigationBar: BottomNavigationBar(
           ),
           new BottomNavigationBarItem(
             title: new Text('my crops'),
-             icon: new Icon(Icons.veg)
+             icon: new Icon(Icons.grain)
           ),
           new BottomNavigationBarItem(
             title: new Text('sell'),
@@ -267,15 +267,36 @@ bottomNavigationBar: BottomNavigationBar(
             onPressed: () {
               // do something
             },
-          )
+          ),
+         
+  
         ],
+        
       ),
-      body: new Center(
-        child: new Text(
-          "Home page",
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
+      
+      body: new Container(
+        child: Wrap(
+            
+          children: <Widget> [
+          ClipPath(
+            clipper: CustomAppBar(),
+            child: Container(
+              color:  HexColor("#5EAD34"),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+               Image.asset('assets/fruits.jpg'),
+                ],
+              ),
+            ),
+          ),
+
+
+
+        ],
         ),
       ),
+
     );
   }
 }
